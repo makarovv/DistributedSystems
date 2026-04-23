@@ -1,4 +1,7 @@
-public class Car implements Display {
+
+import java.io.Serializable;
+
+public class Car implements Display, Serializable {
     private String colour;
     private int horsepower;
     private double weight;

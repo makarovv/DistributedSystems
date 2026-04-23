@@ -1,4 +1,7 @@
-public class Publication implements Display {
+
+import java.io.Serializable;
+
+public class Publication implements Display,Serializable {
     private String title;
     private String language;
     private double price;
