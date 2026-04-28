@@ -1,3 +1,4 @@
+package exercise3;
 public class Teams {
     private String name;
     private String sport;

@@ -1,3 +1,4 @@
+package exercise3;
 public class App {
     public static int FrankfurtSoccerTeams(Clubs clubs) {
         int count = 0;

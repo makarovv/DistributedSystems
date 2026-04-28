@@ -1,3 +1,4 @@
+package exercise3;
 public class Clubs {
     private String name;
     private Teams[] teams = new Teams[0];   

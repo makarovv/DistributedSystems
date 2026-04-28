@@ -1,3 +1,4 @@
+package exercise2;
 public class Book extends Publication {
     private String author;
     private String ISBN;
