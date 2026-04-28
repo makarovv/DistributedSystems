@@ -1,29 +1,33 @@
 public class App {
-    public static void main(String[] args) {
-        Publication publication[] = new Publication[4];
-        publication[0] = new Publication("The Great Gatsby", "English", 10.99);
-
-
-        publication[1] = new Book("To Kill a Mockingbird", "English", 12.99, "Harper Lee", "978-0061120084");
-
-
-        /* for (Publication pub : publication) {
-            if (pub != null) {
-                System.out.println(pub.print());
+    public static int FrankfurtSoccerTeams(Clubs clubs) {
+        int count = 0;
+        for (Teams t : clubs.getAllTeams()) {
+            if (t.getSport().equals("Football") && ((String) t.getName()).contains("Frankfurt")) {
+                count++;
             }
         }
-        */
+        return count;
+        
+    }
 
+    public static String prettyPrintTeamInfo(Teams team){
+        return "Team Name: " + team.getName() + "\nSport: " + team.getSport() + "\nLeague: " + team.getLeague();
+    }
 
-        Display display[] = new Display[4];
-        display[0] = new Car("Red", 200, 1500.0);
-        display[1] = new Book("To Kill a Mockingbird", "English", 12.99, "Harper Lee", "978-0061120084");
-        display[2] = new Publication("The Great Gatsby", "English", 10.99);
+    public static void main(String[] args) throws Exception {
+        Clubs Footballclubs = new Clubs("Football Clubs");
+        Footballclubs.addTeam("Manchester United", "Football", "Premier League");
+        Footballclubs.addTeam("Frankfurt Eintracht", "Football", "Bundesliga");
 
-        for (Display disp : display) {
-            if (disp != null) {
-                System.out.println(disp.print());
-            }
+        Clubs Basketballclubs = new Clubs("Basketball Clubs");
+        Basketballclubs.addTeam("Los Angeles Lakers", "Basketball", "NBA");
+        Basketballclubs.addTeam("Chicago Bulls", "Basketball", "NBA");
+
+        System.out.println("Number of Frankfurt soccer teams: " + FrankfurtSoccerTeams(Footballclubs));
+        if (Basketballclubs.search_Team("Chicago Bulls") != null) {
+            System.out.println(prettyPrintTeamInfo(Basketballclubs.search_Team("Chicago Bulls")));
+        } else {
+            System.out.println("Team not found.");
         }
     }
 }
