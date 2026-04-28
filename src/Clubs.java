@@ -2,6 +2,20 @@ public class Clubs {
     private String name;
     private Teams[] teams = new Teams[0];   
 
+    //getter and setter for clubs
+    public String getName() {
+        return name;
+    }
+    public String setName(String name) {
+        this.name = name;
+        return name;
+    }
+
+    //Constructor 
+    public Clubs(String name) {
+        this.name = name;
+    }
+
     // methods
     public Teams search_Team (String name) {
         for (Teams t : teams) {
