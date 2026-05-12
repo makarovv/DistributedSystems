@@ -9,7 +9,7 @@ public class TCPClient {
   
     try{
 	  int serverPort = 7896;
-	  Socket s = new Socket (args[1], serverPort);
+	  Socket s = new Socket (args[0], serverPort);
 	  DataOutputStream out = new DataOutputStream ( s.getOutputStream());
 	  DataInputStream in = new DataInputStream ( s.getInputStream());
 	  out.writeUTF (args[0]); 

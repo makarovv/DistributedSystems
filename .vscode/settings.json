@@ -1,11 +1,11 @@
 {
-    "java.project.sourcePaths": [
-        "src/exercise2", 
-        "src/exercise3", 
-        "src/exercise4"
-    ],
-    "java.project.outputPath": "bin",
-    "java.project.referencedLibraries": [
-        "lib/**/*.jar"
-    ]
+  "java.project.sourcePaths": [
+    "src/exercise2",
+    "src/exercise3",
+    "src/exercise4"
+  ],
+  "java.project.outputPath": "bin",
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar"
+  ]
 }
