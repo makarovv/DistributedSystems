@@ -4,7 +4,7 @@ import java.net.*;
 
 public class TCPClient {
   public static void main (String args[]) {
-  // args[0]: Message
+  // args[0]: Message, currently disabled, only input is the Servername
   // args[1]: Server
   
     try{

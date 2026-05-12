@@ -14,6 +14,12 @@ public class TCPServer {
 	    Connection c = new Connection(clientSocket);
 	  }
     } catch( IOException e) {System.out.println(" Listen :"+ e.getMessage());}
+
+    // load two clubs objects in here 
+    Clubs footballClubs = new Clubs("Football");
+    Clubs basketballClubs = new Clubs("Basketball");
+
+
   }// main
 }//class
 
