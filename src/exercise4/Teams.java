@@ -1,5 +1,10 @@
+import java.io.Serializable;
 
-public class Teams {
+public class Teams implements Serializable{
+    // version stamp for serialization of classes
+    //ObjectOutputStream sends it along the bytes as a 'chksum' safety measure
+    private static final long serialVersionUID = 1L;
+
     private String name;
     private String sport;
     private String league;
@@ -26,6 +31,11 @@ public class Teams {
     public String setLeague(String league) {
         this.league = league;
         return league;
+    }
+
+    // customizes the toString method
+    @Override public String toString() {
+        return name + " (" + sport + ", " + league + ") ";
     }
 
 }
