@@ -38,6 +38,7 @@ class Connection extends Thread {
   public Connection (Socket aClientSocket, Clubs football, Clubs basketball) {
     try {
       clientSocket = aClientSocket;
+
       footballClubs = football;
       basketballClubs = basketball;
 
@@ -54,22 +55,54 @@ class Connection extends Thread {
   public void run(){
     try {
 
-      // TODO: read the serialized msg that the client sent via readObject and println what is being received
+      // read the serialized msg that the client sent via readObject and println what is being received
       Message msg = (Message) in.readObject();
-
+      System.out.println("Call: " + msg.getproxyObj() + " " + msg.getMethodName());
     
-      // TODO: if the msg returns a proxyobj that is on the server side set target to club obj else output "unknown obj"
+      // if the msg returns a proxyobj that is on the server side set target to club obj else output "unknown obj"
       Clubs target = null;
+      if ("football".equals(msg.getproxyObj()))
+        target= footballClubs;
+      if ("basketball".equals(msg.getproxyObj()))
+        target = basketballClubs;
 
-      //TODO: create a switchcase um zu wissen welche methode angefragt wird(getMethodName) and send result obj back with target.teammethod
+      if(target == null){
+        out.writeObject("Club not found");
+        out.flush();
+        return;
+      }
+
+      // create a switchcase um zu wissen welche methode angefragt wird(getMethodName) and send result obj back with target.teammethod
       Object[] p = msg.getParams();
-      Object result;
+      Object result = new Object();
 
-      // TODO:send result back via out.writeobj anb flush
+      switch (msg.getMethodName()) {
+        case "addTeam":
+          target.addTeam((String) p[0], (String) p[1], (String) p[2]);
+          result = "Method addTeam called";
+          break;
+        case "search_Team":
+          target.search_Team((String)p[0]);
+          result = "Method search_Team called";
+        break;
+        case "getAllTeams":
+          target.getAllTeams();
+          result = "Method getAllTeams called";
+        break;
+        case "returnClubName":
+          target.returnClubName();
+          result = "Method returnClubName called";
+        break;
+        default: System.out.println("Invalid Method chosen");
+          break;
+      }
+
+      // send result back via out.writeobj anb flush
       out.writeObject(result);
       out.flush();
 
-	    System.out.println("Sent result: " + result);	  
+      System.out.println("Send Result: " + result);
+
     } catch( EOFException e) {System.out.println(" EOF:"+ e.getMessage());
     } catch( IOException e) {System.out.println(" IO:"+ e.getMessage());} 
       catch (ClassNotFoundException e)  { System.out.println(" CNF:" + e.getMessage()); }
