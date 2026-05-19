@@ -8,14 +8,19 @@ public class TCPClient {
   // args[1]: Server
   
     try{
-	  int serverPort = 7896;
-	  Socket s = new Socket (args[0], serverPort);
-	  DataOutputStream out = new DataOutputStream ( s.getOutputStream());
-	  DataInputStream in = new DataInputStream ( s.getInputStream());
-	  out.writeUTF (args[0]); 
-	  String data = in.readUTF ();
-	  System. out.println("Received: "+ data) ;
-	  s.close();
+		String host = args.length > 0 ? args[0] : "localhost";
+		int serverPort = 7896;
+
+		// TODO: init two clubproxy clone objs
+
+		// TODO: add some teams 
+
+		// TODO: for every team t in football grab all the teams and system print em
+		
+		// TODO: init found teams and search for a football team and then system print
+		
+		// TODO: same thing with a basketball team
+
     }catch (UnknownHostException e){
 	  System.out.println(" Sock:"+ e.getMessage());
     }catch (EOFException e){ System.out.println(" EOF:"+ e.getMessage());
