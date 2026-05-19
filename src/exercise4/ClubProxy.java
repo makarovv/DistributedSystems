@@ -20,34 +20,34 @@ public class ClubProxy{
     }
 
     //methods
-    public Teams search_Teams(String teamName){
-        return (Teams) sendCall("search_Teams",new Object[]);
+    public Teams search_Team(String teamName){
+        return (Teams) sendCall("search_Team", new Object[]{teamName});
     }
 
     public void addTeam(String teamName, String sport, String league){
-
+        sendCall("addTeam", new Object[]{teamName, sport, league});
     }
 
     public Teams[] getAllTeams() {
-
+        return (Teams[]) sendCall("getAllTeams", new Object[]{});
     }
 
     public String returnClubName(){
-
+        return (String) sendCall("returnClubName", new Object[]{});
     }
 
+
+    // networking helper method
     private Object sendCall(String methodName, Object[] args) {
         try (Socket s = new Socket("localhost", 7896);
              ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
              ObjectInputStream  in  = new ObjectInputStream(s.getInputStream())) {
 
-            out.writeObject(new Message(proxyObj, methodName, args));
+            out.writeObject(new Message(objectId, methodName, args));
             out.flush();
 
-            Object result = in.readObject();
-            if (result instanceof Throwable t)
-                throw new RuntimeException("remote error", t);
-            return result;
+            return in.readObject();
+
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException("RMI call failed", e);
         }
