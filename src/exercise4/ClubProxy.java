@@ -3,9 +3,9 @@ import java.net.*;
 
 public class ClubProxy{
     //vars
-    private String objectId;
+    private String proxyObj;
     private String host = "localhost";
-    private String port = "7896";
+    private int port = 7896;
 
     /*private String teamName;
     private Teams[] teams = new Teams[0];
@@ -13,8 +13,8 @@ public class ClubProxy{
     private String league; */
 
     //Constructor
-    public ClubProxy(String objectId, String host, String port){
-        this.objectId = objectId;
+    public ClubProxy(String proxyObj, String host, int port){
+        this.proxyObj = proxyObj;
         this.host = host;
         this.port = port; 
     }
@@ -39,11 +39,11 @@ public class ClubProxy{
 
     // networking helper method
     private Object sendCall(String methodName, Object[] args) {
-        try (Socket s = new Socket("localhost", 7896);
+        try (Socket s = new Socket(host, port);
              ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
              ObjectInputStream  in  = new ObjectInputStream(s.getInputStream())) {
 
-            out.writeObject(new Message(objectId, methodName, args));
+            out.writeObject(new Message(proxyObj, methodName, args));
             out.flush();
 
             return in.readObject();

@@ -32,8 +32,8 @@ class Connection extends Thread {
   Socket clientSocket;
 
   // refer to the server side Clubs
-  Clubs footballClubs;
-  Clubs basketballClubs;
+  Clubs footballClubs = new Clubs("FC Europe");
+  Clubs basketballClubs = new Clubs("BC America");
 
   public Connection (Socket aClientSocket, Clubs football, Clubs basketball) {
     try {

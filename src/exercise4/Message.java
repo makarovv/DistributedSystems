@@ -3,10 +3,10 @@ import java.io.Serializable;
 public class Message implements Serializable {
     private String methodName;
     private String proxyObj;
-    private String[] params = new String[0];
+    private Object[] params = new String[0];
 
     //Constructor
-    public Message(String proxyObj, String methodName, String[] params){
+    public Message(String proxyObj, String methodName, Object[] params){
         this.proxyObj = proxyObj;
         this.methodName = methodName;
         this.params = params;
