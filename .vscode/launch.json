@@ -6,18 +6,17 @@
     "configurations": [
         {
             "type": "java",
-            "name": "TCPServer",
+            "name": "LaunchDateServer",
             "request": "launch",
-            "mainClass": "TCPServer",
+            "mainClass": "DateServer",
             "projectName": "DistributedSystems_86772e16"
         },
         {
             "type": "java",
-            "name": "TCPClient",
+            "name": "LaunchDateClient",
             "request": "launch",
-            "mainClass": "TCPClient",
-            "projectName": "DistributedSystems_86772e16",
-            "args": "localhost"
+            "mainClass": "DateClient",
+            "projectName": "DistributedSystems_86772e16"
         }
     ]
 }
