@@ -47,5 +47,12 @@ public class Clubs {
 
     public String returnClubName () {
         return name;
-    }   
+    }
+    
+    @Override
+    public String toString() {
+        return name + " (" + sport + ", " + league + ") ";
+
+    }
 }
+

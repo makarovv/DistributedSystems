@@ -82,16 +82,13 @@ class Connection extends Thread {
           result = "Method addTeam called";
           break;
         case "search_Team":
-          target.search_Team((String)p[0]);
-          result = "Method search_Team called";
+          result = target.search_Team((String)p[0]);
         break;
         case "getAllTeams":
-          target.getAllTeams();
-          result = "Method getAllTeams called";
+          result = target.getAllTeams();
         break;
         case "returnClubName":
-          target.returnClubName();
-          result = "Method returnClubName called";
+          result = target.returnClubName();
         break;
         default: System.out.println("Invalid Method chosen");
           break;
