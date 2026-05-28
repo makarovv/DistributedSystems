@@ -49,9 +49,10 @@ public class Clubs {
         return name;
     }
     
+    // TODO: fix following
     @Override
     public String toString() {
-        return name + " (" + sport + ", " + league + ") ";
+        return name ;
 
     }
 }

@@ -12,14 +12,15 @@ public class TCPServer {
     try{
       System.out.println("The Server is running");
 	    int serverPort = 7896;
-	    ServerSocket listenSocket = new ServerSocket (serverPort);
-	    while(true) {
-	      Socket clientSocket = listenSocket.accept();
-	      System. out.println("New Connection");
+	    try (ServerSocket listenSocket = new ServerSocket (serverPort)) {
+        while(true) {
+          Socket clientSocket = listenSocket.accept();
+          System. out.println("New Connection");
 
-        // for every new connection give it also the server-side club objects
-	      Connection c = new Connection(clientSocket, footballClubs, basketballClubs);
-	    }
+          // for every new connection give it also the server-side club objects
+          Connection c = new Connection(clientSocket, footballClubs, basketballClubs);
+        }
+      }
     } catch( IOException e) {System.out.println(" Listen :"+ e.getMessage());}
 
   }// main
