@@ -1,5 +1,8 @@
 
-public class Clubs {
+import java.io.Serializable;
+
+
+public class Clubs implements Serializable{
     private String name;
     private Teams[] teams = new Teams[0];   
 
@@ -28,7 +31,7 @@ public class Clubs {
     }
 
     public void addTeam(String name, String sport, String league) {
-        //create a net team and set its values
+        //create a new team and set its values
         Teams newTeam = new Teams();
         newTeam.setName(name);
         newTeam.setSport(sport);
@@ -45,7 +48,7 @@ public class Clubs {
         return teams;
     }
 
-    public String returnClubName () {
+    public String returnClubName() {
         return name;
     }   
 }

@@ -1,13 +1,13 @@
 {
   "java.project.sourcePaths": [
-    "src/exercise2",
-    "src/exercise3",
-    "src/exercise4",
-    "src/exercise5",
-    "src/exercise6"
+    "src\\exercise2",
+    "src\\exercise3",
+    "src\\exercise4",
+    "src\\exercise5",
+    "src\\exercise6"
   ],
   "java.project.outputPath": "bin",
   "java.project.referencedLibraries": [
-    "lib/**/*.jar"
+    "c:\\Users\\DayanaGalinovaHristo\\OneDrive - cioplenu GmbH\\Documents\\Uni\\apache-tomcat-11.0.22\\lib\\servlet-api.jar"
   ]
 }

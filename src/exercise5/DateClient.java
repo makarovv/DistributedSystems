@@ -1,6 +1,5 @@
 
 import java.rmi.Naming;
-import java.util.Date;
 
 public class DateClient {
   public static void main (String[] args) throws Exception {
@@ -11,8 +10,13 @@ public class DateClient {
           
       DateServer dateServer = (DateServer) Naming.lookup
         ("rmi://" + args[0] + "/myObject");
-      Date when = dateServer.getDate ();
-      System.out.println ("Date: " + when);
+      //Date when = dateServer.getDate ();
+      //System.out.println ("Date: " + when);
+
+      Clubs fc = new Clubs("Eintracht Frankfurt");
+      Clubs bc = new Clubs("Golden Gate Warriors");
+
+      
         
     } catch (Exception e) {
 		System.out.println("DateClient: " + e.getMessage());
